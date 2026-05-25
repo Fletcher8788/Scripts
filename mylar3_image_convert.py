@@ -341,6 +341,9 @@ def _to_lossless_webp(src: Path, dst: Path, cwebp: str) -> bool:
         cwebp,
         "-lossless",
         "-z",  str(WEBP_COMPRESSION_LEVEL),
+        "-sharp_yuv",
+        "-alpha_filter", "best",
+        "-metadata",     "all",
         "-mt",              # multi-threaded
         str(src),
         "-o",  str(dst),
